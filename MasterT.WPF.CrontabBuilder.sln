@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterT.WPF.CrontabBuilder", "MasterT.WPF.CrontabBuilder\MasterT.WPF.CrontabBuilder.csproj", "{41B3868B-46B7-482E-95EC-18A52B7A6FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterT.WPF.CrontabBuilderDemo", "MasterT.WPF.CrontabBuilderDemo\MasterT.WPF.CrontabBuilderDemo.csproj", "{448B1A34-A11E-4686-B704-4D71049870D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E7083D4-2BF9-4C0E-A8D3-FE962F6299C3}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,10 @@ Global
 		{41B3868B-46B7-482E-95EC-18A52B7A6FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41B3868B-46B7-482E-95EC-18A52B7A6FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41B3868B-46B7-482E-95EC-18A52B7A6FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448B1A34-A11E-4686-B704-4D71049870D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448B1A34-A11E-4686-B704-4D71049870D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448B1A34-A11E-4686-B704-4D71049870D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448B1A34-A11E-4686-B704-4D71049870D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
