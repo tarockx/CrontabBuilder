@@ -8,6 +8,6 @@
         mc:Ignorable="d" x:Name="uc1"
         Title="CrontabBuilder Demo" Height="Auto" Width="800">
     <Grid>
-        <ctb:CrontabEditorControl CrontabString="0 0/5 * 1/1 * ?" ShowCurrentCrontab="False" ShowCurrentCrontabDescription="True" ShowInfoOutsideMainScroller="False"></ctb:CrontabEditorControl>
+        <ctb:CrontabEditorControl CrontabString="0 0/5 * 1/1 * ?" ShowCurrentCrontab="True" ShowCurrentCrontabDescription="True" ShowInfoOutsideMainScroller="False"></ctb:CrontabEditorControl>
     </Grid>
 </Window>
