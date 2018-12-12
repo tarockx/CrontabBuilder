@@ -5,127 +5,140 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MasterT.WPF.CrontabBuilder"
              mc:Ignorable="d"  x:Name="uc1" Height="Auto">
-    <Grid>
-        <StackPanel Orientation="Vertical" DataContext="{Binding ElementName=uc1, Path=CrontabExpression}" x:Name="stackMain">
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioMinutes" GroupName="mainRadios" IsChecked="{Binding MinuteMode}">Every X minutes</RadioButton>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="bool2vis"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding ElementName=uc1, Path=CrontabExpression}" x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical" x:Name="stackGroups">
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioMinutes" GroupName="mainRadios" IsChecked="{Binding MinuteMode}">Every X minutes</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
+
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMinutes, Path=IsChecked}">
+                        <TextBlock Margin="3">Run every</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding MinuteModeMinutes, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> minutes</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMinutes, Path=IsChecked}">
-                    <TextBlock Margin="3">Run every </TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding MinuteModeMinutes, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> minutes</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioHourly" GroupName="mainRadios" IsChecked="{Binding HourlyMode}">Every X hours</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioHourly" GroupName="mainRadios" IsChecked="{Binding HourlyMode}">Every X hours</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioHourly, Path=IsChecked}">
+                        <TextBlock Margin="3">Run every</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding HourlyModeHours, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> hours</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioHourly, Path=IsChecked}">
-                    <TextBlock Margin="3">Run every</TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding HourlyModeHours, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> hours</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioDaily" GroupName="mainRadios" IsChecked="{Binding DailyMode}">Every day</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioDaily" GroupName="mainRadios" IsChecked="{Binding DailyMode}">Every day</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioDaily, Path=IsChecked}">
+                        <TextBlock Margin="3">Run every day at</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding DailyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioDaily, Path=IsChecked}">
-                    <TextBlock Margin="3">Run every day at</TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding DailyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioWeekly" GroupName="mainRadios" IsChecked="{Binding WeeklyMode}">Every week</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioWeekly" GroupName="mainRadios" IsChecked="{Binding WeeklyMode}">Every week</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioWeekly, Path=IsChecked}">
+                        <TextBlock Margin="3">Run every week on</TextBlock>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Monday}">Mon</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Tuesday}">Tue</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Wednesday}">Wed</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Thursday}">Thu</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Friday}">Fri</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Saturday}">Sat</CheckBox>
+                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Sunday}">Sun</CheckBox>
+                        <TextBlock Margin="10 3 3 3"> at</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding WeeklyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioWeekly, Path=IsChecked}">
-                    <TextBlock Margin="3">Run every week on </TextBlock>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Monday}">Mon</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Tuesday}">Tue</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Wednesday}">Wed</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Thursday}">Thu</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Friday}">Fri</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Saturday}">Sat</CheckBox>
-                    <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Sunday}">Sun</CheckBox>
-                    <TextBlock Margin="10 3 3 3"> at </TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding WeeklyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioMonthly" GroupName="mainRadios" IsChecked="{Binding MonthlyMode}">Every month</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioMonthly" GroupName="mainRadios" IsChecked="{Binding MonthlyMode}">Every month</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
+                        <TextBlock Margin="3">Run every month on day</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3">(1-31)</TextBlock>
+                        <TextBlock Margin="10 3 3 3">at</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
-                    <TextBlock Margin="3">Run every month on day</TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3">(1-31)</TextBlock>
-                    <TextBlock Margin="10 3 3 3">at</TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioLastDayOfMonth" GroupName="mainRadios" IsChecked="{Binding LastDayOfMonthMode}">On the last day of the month</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioLastDayOfMonth" GroupName="mainRadios" IsChecked="{Binding LastDayOfMonthMode}">On the last day of the month</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
+                        <TextBlock Margin="3">Run on the last day of each month, at</TextBlock>
+                        <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
-                    <TextBlock Margin="3">Run on the last day of each month, at</TextBlock>
-                    <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioCustom" GroupName="mainRadios" IsChecked="{Binding CustomMode}">Custom CRONTAB expression</RadioButton>
+                        </StackPanel>
+                    </GroupBox.Header>
 
-            <GroupBox Margin="3">
-                <GroupBox.Header>
-                    <StackPanel Orientation="Horizontal" Margin="3">
-                        <RadioButton x:Name="radioCustom" GroupName="mainRadios" IsChecked="{Binding CustomMode}">Custom CRONTAB expression</RadioButton>
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioCustom, Path=IsChecked}">
+                        <TextBlock Margin="3">Use the following custom Crontab expression</TextBlock>
+                        <TextBox Margin="3" Width="100" Text="{Binding CustomCrontabString, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3"> (must be compliant with the <Hyperlink Click="Hyperlink_Click">Quartz specifications</Hyperlink>)</TextBlock>
                     </StackPanel>
-                </GroupBox.Header>
+                </GroupBox>
 
-                <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioCustom, Path=IsChecked}">
-                    <TextBlock Margin="3">Use the following custom Crontab expression</TextBlock>
-                    <TextBox Margin="3" Width="100" Text="{Binding CustomCrontabString, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                    <TextBlock Margin="3"> (must be compliant with the <Hyperlink Click="Hyperlink_Click">Quartz specifications</Hyperlink>)</TextBlock>
-                </StackPanel>
-            </GroupBox>
+                <GroupBox Grid.Row="2" Margin="3" Header="Current selected scheduling" x:Name="gbDescriptions">
+                    <StackPanel Orientation="Vertical" Margin="3">
+                        <TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription, Converter={StaticResource bool2vis}}">
+                            Scheduling description: <TextBlock FontWeight="Bold" x:Name="txtDescriptor" TextWrapping="Wrap"></TextBlock>
+                        </TextBlock>
+                        <TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontab, Converter={StaticResource bool2vis}}">
+                            Crontab expression: <TextBlock FontWeight="Bold" x:Name="txtCrontab"></TextBlock>
+                        </TextBlock>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
 
-            <GroupBox Margin="3" Header="Current selected scheduling">
-                <StackPanel Orientation="Vertical" Margin="3">
-                    <TextBlock Margin="3">
-                        Scheduling description: <TextBlock FontWeight="Bold" x:Name="txtDescriptor" TextWrapping="Wrap"></TextBlock>
-                    </TextBlock>
-                    <TextBlock Margin="3">
-                        Crontab expression: <TextBlock FontWeight="Bold" x:Name="txtCrontab"></TextBlock>
-                    </TextBlock>
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
     </Grid>
 </UserControl>

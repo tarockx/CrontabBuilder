@@ -34,6 +34,56 @@ namespace MasterT.WPF.CrontabBuilder
 
 
 
+        public bool ShowCurrentCrontab
+        {
+            get { return (bool)GetValue(ShowCurrentCrontabProperty); }
+            set { SetValue(ShowCurrentCrontabProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowCurrentCrontab.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowCurrentCrontabProperty = DependencyProperty.Register("ShowCurrentCrontab", typeof(bool), typeof(CrontabEditorControl), new PropertyMetadata(true));
+
+
+
+        public bool ShowCurrentCrontabDescription
+        {
+            get { return (bool)GetValue(ShowCurrentCrontabDescriptionProperty); }
+            set { SetValue(ShowCurrentCrontabDescriptionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowCurrentCrontabDescription.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowCurrentCrontabDescriptionProperty = DependencyProperty.Register("ShowCurrentCrontabDescription", typeof(bool), typeof(CrontabEditorControl), new PropertyMetadata(true));
+
+
+
+
+        public bool ShowInfoOutsideMainScroller
+        {
+            get { return (bool)GetValue(ShowInfoOutsideMainScrollerProperty); }
+            set { SetValue(ShowInfoOutsideMainScrollerProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowInfoOutsideMainScroller.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowInfoOutsideMainScrollerProperty = DependencyProperty.Register("ShowInfoOutsideMainScroller", typeof(bool), typeof(CrontabEditorControl), new PropertyMetadata(false, ShowInfoOutsideMainScroller_Changed));
+
+        private static void ShowInfoOutsideMainScroller_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ce = (d as CrontabEditorControl);
+            var item = ce.gbDescriptions;
+            
+            if((bool)e.NewValue)
+            {
+                ce.stackGroups.Children.Remove(item);
+                item.SetValue(Grid.RowProperty, 2);
+                ce.mainGrid.Children.Add(item);
+            }
+            else
+            {
+                ce.mainGrid.Children.Remove(item);
+                ce.stackGroups.Children.Add(item);
+            }
+        }
+
         public CrontabEditorControl() : this(null)
         {
         }

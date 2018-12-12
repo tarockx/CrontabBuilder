@@ -98,6 +98,7 @@ namespace MasterT.WPF.CrontabBuilder
                 }
 
                 //No match -> assume custom mode
+                model.CustomCrontabString = crontab;
                 model.CustomMode = true;
                 return model;
             }
