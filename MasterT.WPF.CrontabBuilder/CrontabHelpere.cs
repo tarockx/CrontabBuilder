@@ -15,6 +15,12 @@ namespace MasterT.WPF.CrontabBuilder
         {
             CrontabExpressionModel model = new CrontabExpressionModel();
 
+            if (string.IsNullOrEmpty(crontab))
+            {
+                model.CustomMode = customMode;
+                return model;
+            }
+
             if (customMode)
             {
                 model.CustomMode = true;

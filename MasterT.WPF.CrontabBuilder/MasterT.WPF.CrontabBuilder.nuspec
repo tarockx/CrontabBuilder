@@ -6,11 +6,12 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed initial crontab parsing</releaseNotes>
+    <releaseNotes>Fixed CrontabEditorControl incorrectly switching to Custom Mode in some cases when re-assigning or chain-binding to CrontabString property</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>WPF Crontab</tags>
+	<projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>
   </metadata>
 </package>
