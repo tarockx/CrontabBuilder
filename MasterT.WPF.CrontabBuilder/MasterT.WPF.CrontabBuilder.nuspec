@@ -9,8 +9,8 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed CrontabEditorControl incorrectly switching to Custom Mode in some cases when re-assigning or chain-binding to CrontabString property</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>Fixed a bug that inverted minutes and hours in the "every day" mode text box</releaseNotes>
+    <copyright>Copyright 2018-2019</copyright>
     <tags>WPF Crontab</tags>
 	<projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>
   </metadata>
