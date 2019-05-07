@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed a bug that inverted minutes and hours in the "every day" mode text box</releaseNotes>
+    <releaseNotes>Tweaked the parser so that, when setting a crontab string from code, minutes in the text boxes are padded with a leading zero</releaseNotes>
     <copyright>Copyright 2018-2019</copyright>
     <tags>WPF Crontab</tags>
 	<projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>

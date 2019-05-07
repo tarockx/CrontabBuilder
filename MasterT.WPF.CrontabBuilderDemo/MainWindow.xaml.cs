@@ -36,7 +36,7 @@ namespace MasterT.WPF.CrontabBuilderDemo
         public MainWindow()
         {
             InitializeComponent();
-            CrontabString = "0 0/30 * 1/1 * ?";
+            CrontabString = "0 9 16 * * ?";
 
         }
     }

@@ -52,7 +52,7 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.DailyMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
+                    string minutes = Pad(re.Match(crontab).Groups[1].Value);
                     string hours = re.Match(crontab).Groups[2].Value;
                     model.DailyModeTime = $"{hours}:{minutes}";
                     return model;
@@ -63,7 +63,7 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.MonthlyMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
+                    string minutes = Pad(re.Match(crontab).Groups[1].Value);
                     string hours = re.Match(crontab).Groups[2].Value;
                     string day = re.Match(crontab).Groups[3].Value;
 
@@ -77,7 +77,7 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.LastDayOfMonthMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
+                    string minutes = Pad(re.Match(crontab).Groups[1].Value);
                     string hours = re.Match(crontab).Groups[2].Value;
 
                     model.LastDayOfMonthModeTime = $"{hours}:{minutes}";
@@ -89,7 +89,7 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.WeeklyMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
+                    string minutes = Pad(re.Match(crontab).Groups[1].Value);
                     string hours = re.Match(crontab).Groups[2].Value;
                     model.WeeklyModeTime = $"{hours}:{minutes}";
 
@@ -108,11 +108,6 @@ namespace MasterT.WPF.CrontabBuilder
                 model.CustomMode = true;
                 return model;
             }
-        }
-
-        private static string FillTwoDigits(string input)
-        {
-            return input.Length == 1 ? $"0{input}" : input;
         }
 
         private static void ComputeEveryMinuteCrontab(CrontabExpressionModel model)
@@ -279,6 +274,11 @@ namespace MasterT.WPF.CrontabBuilder
 
         }
 
+        private static string Pad(string input)
+        {
+            return input.Length == 1 ? $"0{input}" : input;
+        }
+
         /// <summary>
         /// This is used to react to Crontab UI radio button form event. It read the UI model and call the right method to produce the crontab expression.
         /// </summary>
@@ -338,5 +338,6 @@ namespace MasterT.WPF.CrontabBuilder
 
             }
         }
+
     }
 }
