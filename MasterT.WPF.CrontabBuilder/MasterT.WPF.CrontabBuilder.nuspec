@@ -9,11 +9,7 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>
-      Added options to use the nearest weekday (i.e.: exclude weekends) in day-of-month and last-day-of-month modes
-	  Fixed bug in parsing certain crontab strings
-	  Fixed visibility of scheduling info container (did not disappear if both cron string and description were hidden)
-    </releaseNotes>
+    <releaseNotes>Fixed regression in 1.1.0</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>WPF Crontab</tags>
 	  <projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>

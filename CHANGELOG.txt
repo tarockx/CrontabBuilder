@@ -1,3 +1,6 @@
+1.1.1
+	Fixed regression in 1.1.0
+
 1.1.0
 	Added options to use the nearest weekday (i.e.: exclude weekends) in day-of-month and last-day-of-month modes
 	Fixed bug in parsing certain crontab strings
