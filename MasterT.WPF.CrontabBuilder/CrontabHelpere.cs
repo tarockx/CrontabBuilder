@@ -54,7 +54,7 @@ namespace MasterT.WPF.CrontabBuilder
 
                     string minutes = FillTwoDigits(re.Match(crontab).Groups[1].Value);
                     string hours = FillTwoDigits(re.Match(crontab).Groups[2].Value);
-                    model.DailyModeTime = $"{minutes}:{hours}";
+                    model.DailyModeTime = $"{hours}:{minutes}";
                     return model;
                 }
 
