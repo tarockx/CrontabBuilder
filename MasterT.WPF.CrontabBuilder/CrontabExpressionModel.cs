@@ -14,7 +14,9 @@
         bool isEveryHourMode;
         bool isEveryDayMode;
         bool isLastDayOfMonthMode;
+        bool isLastWeekDayOfMonthMode;
         bool isDayOfMonthMode;
+        bool isWeekDayOfMonthMode;
         bool isDayOfWeekMode;
         bool isCustomMode;
 
@@ -170,6 +172,18 @@
             }
         }
 
+        public bool LastWeekDayOfMonthMode
+        {
+            get
+            {
+                return isLastWeekDayOfMonthMode;
+            }
+            set
+            {
+                SetField(ref isLastWeekDayOfMonthMode, value);
+            }
+        }
+
         public bool MonthlyMode
         {
             get
@@ -179,6 +193,18 @@
             set
             {
                 SetField(ref isDayOfMonthMode, value);
+            }
+        }
+
+        public bool MonthlyWeekdayMode
+        {
+            get
+            {
+                return isWeekDayOfMonthMode;
+            }
+            set
+            {
+                SetField(ref isWeekDayOfMonthMode, value);
             }
         }
 

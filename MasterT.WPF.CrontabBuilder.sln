@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterT.WPF.CrontabBuilder", "MasterT.WPF.CrontabBuilder\MasterT.WPF.CrontabBuilder.csproj", "{41B3868B-46B7-482E-95EC-18A52B7A6FD0}"
 EndProject
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterT.WPF.CrontabBuilderD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E7083D4-2BF9-4C0E-A8D3-FE962F6299C3}"
 	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.txt = CHANGELOG.txt
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection

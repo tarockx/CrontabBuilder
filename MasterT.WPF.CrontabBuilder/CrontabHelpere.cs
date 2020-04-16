@@ -52,19 +52,20 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.DailyMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
-                    string hours = re.Match(crontab).Groups[2].Value;
+                    string minutes = FillTwoDigits(re.Match(crontab).Groups[1].Value);
+                    string hours = FillTwoDigits(re.Match(crontab).Groups[2].Value);
                     model.DailyModeTime = $"{minutes}:{hours}";
                     return model;
                 }
 
-                re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) ([1-9]|0[1-9]|[1-2][0-9]|3[0-1]) \* \?");
+                re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) ([1-9]|0[1-9]|[1-2][0-9]|3[0-1])W? \* \?");
                 if (re.IsMatch(crontab))
                 {
                     model.MonthlyMode = true;
+                    model.MonthlyWeekdayMode = crontab.Contains("W");
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
-                    string hours = re.Match(crontab).Groups[2].Value;
+                    string minutes = FillTwoDigits(re.Match(crontab).Groups[1].Value);
+                    string hours = FillTwoDigits(re.Match(crontab).Groups[2].Value);
                     string day = re.Match(crontab).Groups[3].Value;
 
                     model.MonthlyModeTime = $"{hours}:{minutes}";
@@ -72,13 +73,14 @@ namespace MasterT.WPF.CrontabBuilder
                     return model;
                 }
 
-                re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) L \* \?");
+                re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) LW? \* \?");
                 if (re.IsMatch(crontab))
                 {
                     model.LastDayOfMonthMode = true;
+                    model.LastWeekDayOfMonthMode = crontab.Contains("LW");
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
-                    string hours = re.Match(crontab).Groups[2].Value;
+                    string minutes = FillTwoDigits(re.Match(crontab).Groups[1].Value);
+                    string hours = FillTwoDigits(re.Match(crontab).Groups[2].Value);
 
                     model.LastDayOfMonthModeTime = $"{hours}:{minutes}";
                     return model;
@@ -89,8 +91,8 @@ namespace MasterT.WPF.CrontabBuilder
                 {
                     model.WeeklyMode = true;
 
-                    string minutes = re.Match(crontab).Groups[1].Value;
-                    string hours = re.Match(crontab).Groups[2].Value;
+                    string minutes = FillTwoDigits(re.Match(crontab).Groups[1].Value);
+                    string hours = FillTwoDigits(re.Match(crontab).Groups[2].Value);
                     model.WeeklyModeTime = $"{hours}:{minutes}";
 
                     model.Monday = crontab.Contains("MON");
@@ -145,7 +147,7 @@ namespace MasterT.WPF.CrontabBuilder
                 var minutes = int.Parse(model.MonthlyModeTime.Split(':')[1]);
                 var hours = int.Parse(model.MonthlyModeTime.Split(':')[0]);
                 var dayInMonth = int.Parse(model.MonthlyModeDay);
-                model.OutputCrontabString = $"0 {minutes} {hours} {dayInMonth} * ?";
+                model.OutputCrontabString = $"0 {minutes} {hours} {dayInMonth}{(model.MonthlyWeekdayMode ? "W" : "")} * ?";
             }
         }
 
@@ -199,7 +201,7 @@ namespace MasterT.WPF.CrontabBuilder
             {
                 var minutes = int.Parse(model.LastDayOfMonthModeTime.Split(':')[1]);
                 var hours = int.Parse(model.LastDayOfMonthModeTime.Split(':')[0]);
-                model.OutputCrontabString = $"0 {minutes} {hours} L * ?";
+                model.OutputCrontabString = $"0 {minutes} {hours} {(model.LastWeekDayOfMonthMode ? "LW" : "L")} * ?";
             }
         }
 

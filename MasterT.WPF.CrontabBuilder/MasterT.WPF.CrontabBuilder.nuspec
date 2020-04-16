@@ -9,9 +9,13 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed CrontabEditorControl incorrectly switching to Custom Mode in some cases when re-assigning or chain-binding to CrontabString property</releaseNotes>
-    <copyright>Copyright 2018</copyright>
+    <releaseNotes>
+      Added options to use the nearest weekday (i.e.: exclude weekends) in day-of-month and last-day-of-month modes
+	  Fixed bug in parsing certain crontab strings
+	  Fixed visibility of scheduling info container (did not disappear if both cron string and description were hidden)
+    </releaseNotes>
+    <copyright>Copyright 2020</copyright>
     <tags>WPF Crontab</tags>
-	<projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>
+	  <projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>
   </metadata>
 </package>

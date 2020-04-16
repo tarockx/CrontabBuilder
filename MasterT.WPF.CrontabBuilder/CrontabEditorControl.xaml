@@ -89,13 +89,17 @@
                         </StackPanel>
                     </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
-                        <TextBlock Margin="3">Run every month on day</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3">(1-31)</TextBlock>
-                        <TextBlock Margin="10 3 3 3">at</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
+                    <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <TextBlock Margin="3">Run every month on day</TextBlock>
+                            <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBlock Margin="3">(1-31)</TextBlock>
+                            <TextBlock Margin="10 3 3 3">at</TextBlock>
+                            <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
+                        </StackPanel>
+
+                        <CheckBox Margin="3" IsChecked="{Binding MonthlyWeekdayMode}">Use nearest weekday if selected day is in the weekend</CheckBox>
                     </StackPanel>
                 </GroupBox>
 
@@ -106,10 +110,14 @@
                         </StackPanel>
                     </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
-                        <TextBlock Margin="3">Run on the last day of each month, at</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
+                    <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <TextBlock Margin="3">Run on the last day of each month, at</TextBlock>
+                            <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
+                        </StackPanel>
+
+                        <CheckBox Margin="3" IsChecked="{Binding LastWeekDayOfMonthMode}">Use last weekday of the month if last day of the month is in the weekend</CheckBox>
                     </StackPanel>
                 </GroupBox>
 
@@ -128,6 +136,23 @@
                 </GroupBox>
 
                 <GroupBox Grid.Row="2" Margin="3" Header="Current selected scheduling" x:Name="gbDescriptions">
+                    <GroupBox.Style>
+                        <Style TargetType="GroupBox">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription}" Value="False"/>
+                                        <Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontab}" Value="False"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </GroupBox.Style>
+                    
                     <StackPanel Orientation="Vertical" Margin="3">
                         <TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription, Converter={StaticResource bool2vis}}">
                             Scheduling description: <TextBlock FontWeight="Bold" x:Name="txtDescriptor" TextWrapping="Wrap"></TextBlock>
