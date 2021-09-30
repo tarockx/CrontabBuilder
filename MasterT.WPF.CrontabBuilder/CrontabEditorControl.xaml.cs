@@ -149,7 +149,7 @@ namespace MasterT.WPF.CrontabBuilder
                     ThrowExceptionOnParseError = true,
                     DayOfWeekStartIndexZero = false,
                     Use24HourTimeFormat = true,
-                    Locale = "en"
+                    //Locale = "en"
                 });
                 txtDescriptor.Text = description;
                 txtCrontab.Text = CrontabExpression.OutputCrontabString;
