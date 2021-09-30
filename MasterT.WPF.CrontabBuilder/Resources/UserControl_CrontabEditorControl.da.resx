@@ -1,0 +1,98 @@
+﻿<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="XAML_EveryXMinutes_Title" xml:space="preserve">
+		<value>Hver X minut</value>
+	</data>
+	<data name="XAML_EveryXHours_Title" xml:space="preserve">
+		<value>Hver X time</value>
+	</data>
+	<data name="XAML_Hours_Text" xml:space="preserve">
+		<value>time</value>
+	</data>
+	<data name="XAML_RunEvery_Text" xml:space="preserve">
+		<value>Kør hver</value>
+	</data>
+	<data name="XAML_EveryXDays_Title" xml:space="preserve">
+		<value>Hver dag</value>
+	</data>
+	<data name="XAML_RunEveryDayAt_Text" xml:space="preserve">
+		<value>Kør hver dag kl.</value>
+	</data>
+	<data name="XAML_StartingTimeInFormat_Text" xml:space="preserve">
+		<value>(starter på klokkesæt i TT:MM formatet)</value>
+	</data>
+	<data name="XAML_RunEveryWeekOn_Text" xml:space="preserve">
+		<value>Kør hver uge på dag</value>
+	</data>
+	<data name="XAML_AtTime_Text" xml:space="preserve">
+		<value>kl.</value>
+	</data>
+	<data name="XAML_SundayShort_Text" xml:space="preserve">
+		<value>Søn</value>
+	</data>
+	<data name="XAML_MondayShort_Text" xml:space="preserve">
+		<value>Man</value>
+	</data>
+	<data name="XAML_TuesdayShort_Text" xml:space="preserve">
+		<value>Tir</value>
+	</data>
+	<data name="XAML_WednesdayShort_Text" xml:space="preserve">
+		<value>Ons</value>
+	</data>
+	<data name="XAML_ThursdayShort_Text" xml:space="preserve">
+		<value>Tor</value>
+	</data>
+	<data name="XAML_FridayShort_Text" xml:space="preserve">
+		<value>Fre</value>
+	</data>
+	<data name="XAML_SaturdayShort_Text" xml:space="preserve">
+		<value>Lør</value>
+	</data>
+	<data name="XAML_EveryMonth_Text" xml:space="preserve">
+		<value>Hver måned</value>
+	</data>
+	<data name="XAML_RunEveryMonthAt_Text" xml:space="preserve">
+		<value>Kør hver måned på dag</value>
+	</data>
+	<data name="XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text" xml:space="preserve">
+		<value>Brug nærmeste ugedag hvis den valgte dag er på en weekend</value>
+	</data>
+	<data name="XAML_OnTheLastDayOfTheMonth_Text" xml:space="preserve">
+		<value>På den sidste dag i måneden</value>
+	</data>
+	<data name="XAML_RunOnTheLastDayOfTheMonthAt_Text" xml:space="preserve">
+		<value>Kør på den sidste dag i måneden, kl.</value>
+	</data>
+	<data name="XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text" xml:space="preserve">
+		<value>Brug den sidste hverdag i måneden hvis den sidste dag i måneden er i weekenden</value>
+	</data>
+	<data name="XAML_CustomCronExpression_Text" xml:space="preserve">
+		<value>Brugerdefineret Cron streng</value>
+	</data>
+	<data name="XAML_UseTheFollowingCronExpression_Text" xml:space="preserve">
+		<value>Brug den følgende Cron streng</value>
+	</data>
+	<data name="XAML_MustBeCompliantWithThe_Text" xml:space="preserve">
+		<value>skal stemme med</value>
+	</data>
+	<data name="XAML_QuartzSpecification_Text" xml:space="preserve">
+		<value>Quartz specifikation</value>
+	</data>
+	<data name="XAML_SchedulingDescriptionWithColon_Text" xml:space="preserve">
+		<value>Tidsplansbeskrivelse:</value>
+	</data>
+	<data name="XAML_CronExpressionWithColon_Text" xml:space="preserve">
+		<value>Cron streng:</value>
+	</data>
+</root>

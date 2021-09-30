@@ -48,6 +48,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\UserControl_CrontabEditorControl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserControl_CrontabEditorControl.resx</DependentUpon>
+    </Compile>
     <Page Include="CrontabEditorControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,9 +79,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.da.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UserControl_CrontabEditorControl.da.resx">
+      <DependentUpon>UserControl_CrontabEditorControl.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UserControl_CrontabEditorControl.en.resx">
+      <DependentUpon>UserControl_CrontabEditorControl.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UserControl_CrontabEditorControl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserControl_CrontabEditorControl.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="MasterT.WPF.CrontabBuilder.nuspec" />
     <None Include="Properties\Settings.settings">
@@ -89,5 +111,6 @@
       <Version>2.9.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

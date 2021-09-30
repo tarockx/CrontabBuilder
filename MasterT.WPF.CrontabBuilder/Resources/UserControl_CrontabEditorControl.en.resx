@@ -1,0 +1,98 @@
+﻿<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="XAML_EveryXMinutes_Title" xml:space="preserve">
+		<value>Every X minutes</value>
+	</data>
+	<data name="XAML_EveryXHours_Title" xml:space="preserve">
+		<value>Every X hours</value>
+	</data>
+	<data name="XAML_Hours_Text" xml:space="preserve">
+		<value>hours</value>
+	</data>
+	<data name="XAML_RunEvery_Text" xml:space="preserve">
+		<value>Run every</value>
+	</data>
+	<data name="XAML_EveryXDays_Title" xml:space="preserve">
+		<value>Every day</value>
+	</data>
+	<data name="XAML_RunEveryDayAt_Text" xml:space="preserve">
+		<value>Run every day at</value>
+	</data>
+	<data name="XAML_StartingTimeInFormat_Text" xml:space="preserve">
+		<value>(starting time in HH:MM format)</value>
+	</data>
+	<data name="XAML_RunEveryWeekOn_Text" xml:space="preserve">
+		<value>Run every week on day</value>
+	</data>
+	<data name="XAML_AtTime_Text" xml:space="preserve">
+		<value>at</value>
+	</data>
+	<data name="XAML_SundayShort_Text" xml:space="preserve">
+		<value>Sun</value>
+	</data>
+	<data name="XAML_MondayShort_Text" xml:space="preserve">
+		<value>Mon</value>
+	</data>
+	<data name="XAML_TuesdayShort_Text" xml:space="preserve">
+		<value>Tue</value>
+	</data>
+	<data name="XAML_WednesdayShort_Text" xml:space="preserve">
+		<value>Wen</value>
+	</data>
+	<data name="XAML_ThursdayShort_Text" xml:space="preserve">
+		<value>Thu</value>
+	</data>
+	<data name="XAML_FridayShort_Text" xml:space="preserve">
+		<value>Fri</value>
+	</data>
+	<data name="XAML_SaturdayShort_Text" xml:space="preserve">
+		<value>Sat</value>
+	</data>
+	<data name="XAML_EveryMonth_Text" xml:space="preserve">
+		<value>Every month</value>
+	</data>
+	<data name="XAML_RunEveryMonthAt_Text" xml:space="preserve">
+		<value>Run every month on day</value>
+	</data>
+	<data name="XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text" xml:space="preserve">
+		<value>Use nearest weekday if selected day is in the weekend</value>
+	</data>
+	<data name="XAML_OnTheLastDayOfTheMonth_Text" xml:space="preserve">
+		<value>On the last day of the month</value>
+	</data>
+	<data name="XAML_RunOnTheLastDayOfTheMonthAt_Text" xml:space="preserve">
+		<value>Run on the last day of each month, at</value>
+	</data>
+	<data name="XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text" xml:space="preserve">
+		<value>Use last weekday of the month if last day of the month is in the weekend</value>
+	</data>
+	<data name="XAML_CustomCronExpression_Text" xml:space="preserve">
+		<value>Custom Cron expression</value>
+	</data>
+	<data name="XAML_UseTheFollowingCronExpression_Text" xml:space="preserve">
+		<value>Use the following custom Cron expression</value>
+	</data>
+	<data name="XAML_MustBeCompliantWithThe_Text" xml:space="preserve">
+		<value>must be compliant with the</value>
+	</data>
+	<data name="XAML_QuartzSpecification_Text" xml:space="preserve">
+		<value>Quartz specifications</value>
+	</data>
+	<data name="XAML_SchedulingDescriptionWithColon_Text" xml:space="preserve">
+		<value>Scheduling description: </value>
+	</data>
+	<data name="XAML_CronExpressionWithColon_Text" xml:space="preserve">
+		<value>Cron expression:</value>
+	</data>
+</root>
