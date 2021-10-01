@@ -202,6 +202,6 @@
     <value>Cron streng:</value>
   </data>
   <data name="XAML_EveryWeek_Text" xml:space="preserve">
-    <value>Hver uge</value>
+	  <value>Hver uge</value>
   </data>
 </root>

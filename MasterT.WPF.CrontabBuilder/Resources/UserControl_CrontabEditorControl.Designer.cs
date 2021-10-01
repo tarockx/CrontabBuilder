@@ -329,5 +329,16 @@ namespace MasterT.WPF.CrontabBuilder.Resources {
                 return ResourceManager.GetString("XAML_WednesdayShort_Text", resourceCulture);
             }
         }
-    }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Every week.
+        /// </summary>
+        public static string XAML_EveryWeek_Text
+        {
+	        get
+	        {
+		        return ResourceManager.GetString("XAML_EveryWeek_Text", resourceCulture);
+	        }
+        }
+  }
 }
