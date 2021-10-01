@@ -75,7 +75,10 @@
 		<GroupBox Margin="3">
 		  <GroupBox.Header>
 			<StackPanel Orientation="Horizontal" Margin="3">
-			  <RadioButton x:Name="radioWeekly" GroupName="mainRadios" IsChecked="{Binding WeeklyMode}">Every week</RadioButton>
+			  <RadioButton x:Name="radioWeekly" 
+			               GroupName="mainRadios" 
+			               IsChecked="{Binding WeeklyMode}"
+			               Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryWeek_Text}"/>
 			</StackPanel>
 		  </GroupBox.Header>
 
