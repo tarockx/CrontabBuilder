@@ -1,4 +1,5 @@
 1.2.0
+	Multi-framework support
 	Introduced localization support
 	Added Danish localization
 
