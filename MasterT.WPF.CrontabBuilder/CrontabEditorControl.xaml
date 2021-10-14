@@ -4,166 +4,195 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MasterT.WPF.CrontabBuilder"
+             xmlns:resources="clr-namespace:MasterT.WPF.CrontabBuilder.Resources"
              mc:Ignorable="d"  x:Name="uc1" Height="Auto">
-    <UserControl.Resources>
-        <BooleanToVisibilityConverter x:Key="bool2vis"/>
-    </UserControl.Resources>
+  <UserControl.Resources>
+	<BooleanToVisibilityConverter x:Key="bool2vis"/>
+  </UserControl.Resources>
 
-    <Grid DataContext="{Binding ElementName=uc1, Path=CrontabExpression}" x:Name="mainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+  <Grid DataContext="{Binding ElementName=uc1, Path=CrontabExpression}" x:Name="mainGrid">
+	<Grid.RowDefinitions>
+	  <RowDefinition Height="Auto"/>
+	  <RowDefinition Height="*"/>
+	  <RowDefinition Height="Auto"/>
+	</Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-            <StackPanel Orientation="Vertical" x:Name="stackGroups">
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioMinutes" GroupName="mainRadios" IsChecked="{Binding MinuteMode}">Every X minutes</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+	<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+	  <StackPanel Orientation="Vertical" x:Name="stackGroups">
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioMinutes"
+			               GroupName="mainRadios" 
+			               IsChecked="{Binding MinuteMode}"
+			               Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryXMinutes_Title}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMinutes, Path=IsChecked}">
-                        <TextBlock Margin="3">Run every</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding MinuteModeMinutes, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> minutes</TextBlock>
-                    </StackPanel>
-                </GroupBox>
+		  <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioMinutes, Path=IsChecked}">
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEvery_Text}"/>
+			<TextBox Margin="3" Width="50" Text="{Binding MinuteModeMinutes, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			  <TextBlock Margin="3" Text=" "></TextBlock>
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_Minutes_Text}"></TextBlock>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioHourly" GroupName="mainRadios" IsChecked="{Binding HourlyMode}">Every X hours</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioHourly" 
+			               GroupName="mainRadios" 
+			               IsChecked="{Binding HourlyMode}" 
+			               Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryXHours_Title}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioHourly, Path=IsChecked}">
-                        <TextBlock Margin="3">Run every</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding HourlyModeHours, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> hours</TextBlock>
-                    </StackPanel>
-                </GroupBox>
+		  <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioHourly, Path=IsChecked}">
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEvery_Text}"/>
+			<TextBox Margin="3" Width="50" Text="{Binding HourlyModeHours, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			<TextBlock Margin="3" Text=" "></TextBlock>
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_Hours_Text}"></TextBlock>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioDaily" GroupName="mainRadios" IsChecked="{Binding DailyMode}">Every day</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioDaily" 
+                                         GroupName="mainRadios" 
+                                         IsChecked="{Binding DailyMode}"
+                                         Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryXDays_Title}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioDaily, Path=IsChecked}">
-                        <TextBlock Margin="3">Run every day at</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding DailyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                    </StackPanel>
-                </GroupBox>
+		  <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioDaily, Path=IsChecked}">
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEveryDayAt_Text}"/>
+			<TextBox Margin="3" Width="50" Text="{Binding DailyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_StartingTimeInFormat_Text}"/>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioWeekly" GroupName="mainRadios" IsChecked="{Binding WeeklyMode}">Every week</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioWeekly" 
+			               GroupName="mainRadios" 
+			               IsChecked="{Binding WeeklyMode}"
+			               Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryWeek_Text}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioWeekly, Path=IsChecked}">
-                        <TextBlock Margin="3">Run every week on</TextBlock>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Monday}">Mon</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Tuesday}">Tue</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Wednesday}">Wed</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Thursday}">Thu</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Friday}">Fri</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Saturday}">Sat</CheckBox>
-                        <CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Sunday}">Sun</CheckBox>
-                        <TextBlock Margin="10 3 3 3"> at</TextBlock>
-                        <TextBox Margin="3" Width="50" Text="{Binding WeeklyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                    </StackPanel>
-                </GroupBox>
+		  <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioWeekly, Path=IsChecked}">
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEveryWeekOn_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Monday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_MondayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Tuesday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_TuesdayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Wednesday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_WednesdayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Thursday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_ThursdayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Friday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_FridayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Saturday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_SaturdayShort_Text}"/>
+			<CheckBox Margin="3" VerticalAlignment="Center" IsChecked="{Binding Sunday}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_SundayShort_Text}"/>
+			<TextBlock Margin="10 3 3 3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_AtTime_Text}"/>
+			<TextBox Margin="3" Width="50" Text="{Binding WeeklyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_StartingTimeInFormat_Text}" />
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioMonthly" GroupName="mainRadios" IsChecked="{Binding MonthlyMode}">Every month</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioMonthly" GroupName="mainRadios" IsChecked="{Binding MonthlyMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryMonth_Text}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <TextBlock Margin="3">Run every month on day</TextBlock>
-                            <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                            <TextBlock Margin="3">(1-31)</TextBlock>
-                            <TextBlock Margin="10 3 3 3">at</TextBlock>
-                            <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                            <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                        </StackPanel>
+		  <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioMonthly, Path=IsChecked}">
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEveryMonthAt_Text}"/>
+			  <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			  <TextBlock Margin="3">(1-31)</TextBlock>
+			  <TextBlock Margin="10 3 3 3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_AtTime_Text}" />
+			  <TextBox Margin="3" Width="50" Text="{Binding MonthlyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			  <TextBlock Margin="3"></TextBlock>
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_StartingTimeInFormat_Text}"/>
+			</StackPanel>
 
-                        <CheckBox Margin="3" IsChecked="{Binding MonthlyWeekdayMode}">Use nearest weekday if selected day is in the weekend</CheckBox>
-                    </StackPanel>
-                </GroupBox>
+			<CheckBox Margin="3" IsChecked="{Binding MonthlyWeekdayMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text}"/>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioLastDayOfMonth" GroupName="mainRadios" IsChecked="{Binding LastDayOfMonthMode}">On the last day of the month</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioLastDayOfMonth" GroupName="mainRadios" IsChecked="{Binding LastDayOfMonthMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_OnTheLastDayOfTheMonth_Text}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <TextBlock Margin="3">Run on the last day of each month, at</TextBlock>
-                            <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                            <TextBlock Margin="3"> (starting time in HH:MM format)</TextBlock>
-                        </StackPanel>
+		  <StackPanel Orientation="Vertical" IsEnabled="{Binding ElementName=radioLastDayOfMonth, Path=IsChecked}">
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunOnTheLastDayOfTheMonthAt_Text}"/>
+			  <TextBox Margin="3" Width="50" Text="{Binding LastDayOfMonthModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			  <TextBlock Margin="3"></TextBlock>
+			  <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_StartingTimeInFormat_Text}"/>
+			</StackPanel>
 
-                        <CheckBox Margin="3" IsChecked="{Binding LastWeekDayOfMonthMode}">Use last weekday of the month if last day of the month is in the weekend</CheckBox>
-                    </StackPanel>
-                </GroupBox>
+			<CheckBox Margin="3" IsChecked="{Binding LastWeekDayOfMonthMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text}"/>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Margin="3">
-                    <GroupBox.Header>
-                        <StackPanel Orientation="Horizontal" Margin="3">
-                            <RadioButton x:Name="radioCustom" GroupName="mainRadios" IsChecked="{Binding CustomMode}">Custom CRONTAB expression</RadioButton>
-                        </StackPanel>
-                    </GroupBox.Header>
+		<GroupBox Margin="3">
+		  <GroupBox.Header>
+			<StackPanel Orientation="Horizontal" Margin="3">
+			  <RadioButton x:Name="radioCustom" GroupName="mainRadios" IsChecked="{Binding CustomMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_CustomCronExpression_Text}"/>
+			</StackPanel>
+		  </GroupBox.Header>
 
-                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioCustom, Path=IsChecked}">
-                        <TextBlock Margin="3">Use the following custom Crontab expression</TextBlock>
-                        <TextBox Margin="3" Width="100" Text="{Binding CustomCrontabString, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <TextBlock Margin="3"> (must be compliant with the <Hyperlink Click="Hyperlink_Click">Quartz specifications</Hyperlink>)</TextBlock>
-                    </StackPanel>
-                </GroupBox>
+		  <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioCustom, Path=IsChecked}">
+			<TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_UseTheFollowingCronExpression_Text}"/>
+			<TextBox Margin="3" Width="100" Text="{Binding CustomCrontabString, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+			<TextBlock Margin="3"> (</TextBlock>
+			<TextBlock Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_MustBeCompliantWithThe_Text}"/>
+			<TextBlock Margin="3">
+			  <Hyperlink Click="Hyperlink_Click">
+				<TextBlock Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_QuartzSpecification_Text}" />
+			  </Hyperlink>)
+			</TextBlock>
+		  </StackPanel>
+		</GroupBox>
 
-                <GroupBox Grid.Row="2" Margin="3" Header="Current selected scheduling" x:Name="gbDescriptions">
-                    <GroupBox.Style>
-                        <Style TargetType="GroupBox">
-                            <Style.Triggers>
-                                <MultiDataTrigger>
-                                    <MultiDataTrigger.Conditions>
-                                        <Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription}" Value="False"/>
-                                        <Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontab}" Value="False"/>
-                                    </MultiDataTrigger.Conditions>
-                                    <MultiDataTrigger.Setters>
-                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                    </MultiDataTrigger.Setters>
-                                </MultiDataTrigger>
-                            </Style.Triggers>
-                        </Style>
+		<GroupBox Grid.Row="2" Margin="3" Header="{x:Static resources:UserControl_CrontabEditorControl.XAML_CurrentlySelectedSchedule_Header}" x:Name="gbDescriptions">
+		  <GroupBox.Style>
+			<Style TargetType="GroupBox">
+			  <Style.Triggers>
+				<MultiDataTrigger>
+				  <MultiDataTrigger.Conditions>
+					<Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription}" Value="False"/>
+					<Condition Binding="{Binding ElementName=uc1, Path=ShowCurrentCrontab}" Value="False"/>
+				  </MultiDataTrigger.Conditions>
+				  <MultiDataTrigger.Setters>
+					<Setter Property="Visibility" Value="Collapsed"></Setter>
+				  </MultiDataTrigger.Setters>
+				</MultiDataTrigger>
+			  </Style.Triggers>
+			</Style>
 
-                    </GroupBox.Style>
-                    
-                    <StackPanel Orientation="Vertical" Margin="3">
-                        <TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription, Converter={StaticResource bool2vis}}">
-                            Scheduling description: <TextBlock FontWeight="Bold" x:Name="txtDescriptor" TextWrapping="Wrap"></TextBlock>
+		  </GroupBox.Style>
+
+		  <StackPanel Orientation="Vertical" Margin="3">
+			<TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontabDescription, Converter={StaticResource bool2vis}}">
+				<TextBlock Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_SchedulingDescriptionWithColon_Text }"/>
+				<TextBlock Text=" "/>
+				<TextBlock FontWeight="Bold" x:Name="txtDescriptor" TextWrapping="Wrap" />
+			</TextBlock>
+
+			<TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontab, Converter={StaticResource bool2vis}}">
+                            
+				<TextBlock Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_CronExpressionWithColon_Text }"/>
+				<TextBlock Text=" "/>
+				<TextBlock FontWeight="Bold" x:Name="txtCrontab"/>
                         </TextBlock>
-                        <TextBlock Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCurrentCrontab, Converter={StaticResource bool2vis}}">
-                            Crontab expression: <TextBlock FontWeight="Bold" x:Name="txtCrontab"></TextBlock>
-                        </TextBlock>
-                    </StackPanel>
-                </GroupBox>
-            </StackPanel>
-        </ScrollViewer>
+		  </StackPanel>
+		</GroupBox>
+	  </StackPanel>
+	</ScrollViewer>
 
-    </Grid>
+  </Grid>
 </UserControl>

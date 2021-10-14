@@ -9,8 +9,8 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed regression in 1.1.0</releaseNotes>
-    <copyright>Copyright 2020</copyright>
+    <releaseNotes>Added localization in 1.2.0</releaseNotes>
+    <copyright>Copyright 2021</copyright>
     <tags>WPF Crontab</tags>
 	  <projectUrl>https://github.com/tarockx/CrontabBuilder</projectUrl>
   </metadata>
