@@ -58,3 +58,5 @@ The `CrontabEditorControl` exposes the following dependency properties that can 
 ## Credits
 
 This project uses [Cron Expression Descriptor](https://github.com/bradymholt/cron-expression-descriptor) by Brady Holt 
+
+Thanks to [Christoffer Pedersen](https://github.com/Tonur) for: localization support, danish translation
