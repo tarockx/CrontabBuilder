@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net472</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net461</TargetFrameworks>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <!-- Nuget specs -->
