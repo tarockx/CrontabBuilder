@@ -22,9 +22,7 @@
     <Copyright>Copyright 2021</Copyright>
     <PackageTags>WPF Crontab</PackageTags>
     <PackageReleaseNotes>
-      Multi-framework support
-      Introduced localization support
-      Added Danish localization
+      Lowered .NET Framework min version to v461
     </PackageReleaseNotes>
   </PropertyGroup>
   
