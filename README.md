@@ -55,6 +55,11 @@ The `CrontabEditorControl` exposes the following dependency properties that can 
 * `ShowCurrentCrontabDescription` - shows or hides the bottom panel that shows a human-readable description the currently selected Crontab string
 * `ShowInfoOutsideMainScroller` - if set to `true`, this will move the description panels outside the main `ScrollViewer` that contains all the crontab editing controls. This means the description panel will always be visible even if the editing controls are partially hidden due to lack of vertical space.
 
+## Building
+
+NuGet package can be built by using the `dotnet` command line:
+>dotnet pack MasterT.WPF.CrontabBuilder.csproj -c Release
+
 ## Credits
 
 This project uses [Cron Expression Descriptor](https://github.com/bradymholt/cron-expression-descriptor) by Brady Holt 
