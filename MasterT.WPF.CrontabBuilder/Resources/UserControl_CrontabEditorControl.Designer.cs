@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MasterT.WPF.CrontabBuilder.Resources {
+namespace MasterT.WPF.CrontabBuilder.Resources
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,310 +23,400 @@ namespace MasterT.WPF.CrontabBuilder.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class UserControl_CrontabEditorControl {
-        
+    public class UserControl_CrontabEditorControl
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal UserControl_CrontabEditorControl() {
+        internal UserControl_CrontabEditorControl()
+        {
         }
-        
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MasterT.WPF.CrontabBuilder.Resources.UserControl_CrontabEditorControl", typeof(UserControl_CrontabEditorControl).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to at.
         /// </summary>
-        public static string XAML_AtTime_Text {
-            get {
+        public static string XAML_AtTime_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_AtTime_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Cron expression:.
         /// </summary>
-        public static string XAML_CronExpressionWithColon_Text {
-            get {
+        public static string XAML_CronExpressionWithColon_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_CronExpressionWithColon_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Current selected scheduling.
         /// </summary>
-        public static string XAML_CurrentlySelectedSchedule_Header {
-            get {
+        public static string XAML_CurrentlySelectedSchedule_Header
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_CurrentlySelectedSchedule_Header", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Custom Cron expression.
         /// </summary>
-        public static string XAML_CustomCronExpression_Text {
-            get {
+        public static string XAML_CustomCronExpression_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_CustomCronExpression_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Every month.
         /// </summary>
-        public static string XAML_EveryMonth_Text {
-            get {
+        public static string XAML_EveryMonth_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_EveryMonth_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Every day.
         /// </summary>
-        public static string XAML_EveryXDays_Title {
-            get {
+        public static string XAML_EveryXDays_Title
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_EveryXDays_Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Every X hours.
         /// </summary>
-        public static string XAML_EveryXHours_Title {
-            get {
+        public static string XAML_EveryXHours_Title
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_EveryXHours_Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Every X minutes.
         /// </summary>
-        public static string XAML_EveryXMinutes_Title {
-            get {
+        public static string XAML_EveryXMinutes_Title
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_EveryXMinutes_Title", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Every X seconds.
+        /// </summary>
+        public static string XAML_EveryXSeconds_Title
+        {
+            get
+            {
+                return ResourceManager.GetString("XAML_EveryXSeconds_Title", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Fri.
         /// </summary>
-        public static string XAML_FridayShort_Text {
-            get {
+        public static string XAML_FridayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_FridayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to hours.
         /// </summary>
-        public static string XAML_Hours_Text {
-            get {
+        public static string XAML_Hours_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_Hours_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to minutes.
         /// </summary>
-        public static string XAML_Minutes_Text {
-            get {
+        public static string XAML_Minutes_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_Minutes_Text", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string XAML_Seconds_Text
+        {
+            get
+            {
+                return ResourceManager.GetString("XAML_Seconds_Text", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Mon.
         /// </summary>
-        public static string XAML_MondayShort_Text {
-            get {
+        public static string XAML_MondayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_MondayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to must be compliant with the.
         /// </summary>
-        public static string XAML_MustBeCompliantWithThe_Text {
-            get {
+        public static string XAML_MustBeCompliantWithThe_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_MustBeCompliantWithThe_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to On the last day of the month.
         /// </summary>
-        public static string XAML_OnTheLastDayOfTheMonth_Text {
-            get {
+        public static string XAML_OnTheLastDayOfTheMonth_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_OnTheLastDayOfTheMonth_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Quartz specifications.
         /// </summary>
-        public static string XAML_QuartzSpecification_Text {
-            get {
+        public static string XAML_QuartzSpecification_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_QuartzSpecification_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Run every.
         /// </summary>
-        public static string XAML_RunEvery_Text {
-            get {
+        public static string XAML_RunEvery_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_RunEvery_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Run every day at.
         /// </summary>
-        public static string XAML_RunEveryDayAt_Text {
-            get {
+        public static string XAML_RunEveryDayAt_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_RunEveryDayAt_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Run every month on day.
         /// </summary>
-        public static string XAML_RunEveryMonthAt_Text {
-            get {
+        public static string XAML_RunEveryMonthAt_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_RunEveryMonthAt_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Run every week on day.
         /// </summary>
-        public static string XAML_RunEveryWeekOn_Text {
-            get {
+        public static string XAML_RunEveryWeekOn_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_RunEveryWeekOn_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Run on the last day of each month, at.
         /// </summary>
-        public static string XAML_RunOnTheLastDayOfTheMonthAt_Text {
-            get {
+        public static string XAML_RunOnTheLastDayOfTheMonthAt_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_RunOnTheLastDayOfTheMonthAt_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Sat.
         /// </summary>
-        public static string XAML_SaturdayShort_Text {
-            get {
+        public static string XAML_SaturdayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_SaturdayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Scheduling description: .
         /// </summary>
-        public static string XAML_SchedulingDescriptionWithColon_Text {
-            get {
+        public static string XAML_SchedulingDescriptionWithColon_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_SchedulingDescriptionWithColon_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to (starting time in HH:MM format).
         /// </summary>
-        public static string XAML_StartingTimeInFormat_Text {
-            get {
+        public static string XAML_StartingTimeInFormat_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_StartingTimeInFormat_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Sun.
         /// </summary>
-        public static string XAML_SundayShort_Text {
-            get {
+        public static string XAML_SundayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_SundayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Thu.
         /// </summary>
-        public static string XAML_ThursdayShort_Text {
-            get {
+        public static string XAML_ThursdayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_ThursdayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Tue.
         /// </summary>
-        public static string XAML_TuesdayShort_Text {
-            get {
+        public static string XAML_TuesdayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_TuesdayShort_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Use last weekday of the month if last day of the month is in the weekend.
         /// </summary>
-        public static string XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text {
-            get {
+        public static string XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_UseLastWeekdayOfTheMonthIfTheLastDayOfTheMonthIsInTheWeekend_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Use nearest weekday if selected day is in the weekend.
         /// </summary>
-        public static string XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text {
-            get {
+        public static string XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_UseNearestWeekdayIfSelectedDayIsInTheWeekend_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Use the following custom Cron expression.
         /// </summary>
-        public static string XAML_UseTheFollowingCronExpression_Text {
-            get {
+        public static string XAML_UseTheFollowingCronExpression_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_UseTheFollowingCronExpression_Text", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Wen.
         /// </summary>
-        public static string XAML_WednesdayShort_Text {
-            get {
+        public static string XAML_WednesdayShort_Text
+        {
+            get
+            {
                 return ResourceManager.GetString("XAML_WednesdayShort_Text", resourceCulture);
             }
         }
@@ -335,10 +426,10 @@ namespace MasterT.WPF.CrontabBuilder.Resources {
         /// </summary>
         public static string XAML_EveryWeek_Text
         {
-	        get
-	        {
-		        return ResourceManager.GetString("XAML_EveryWeek_Text", resourceCulture);
-	        }
+            get
+            {
+                return ResourceManager.GetString("XAML_EveryWeek_Text", resourceCulture);
+            }
         }
-  }
+    }
 }
