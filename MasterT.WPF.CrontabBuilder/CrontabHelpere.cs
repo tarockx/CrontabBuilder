@@ -131,7 +131,7 @@ namespace MasterT.WPF.CrontabBuilder
             if (model.SecondMode && CheckIfIsValidMinuteOrSeconds(model.SecondModeSeconds))
             {
                 var seconds = int.Parse(model.SecondModeSeconds);
-                model.OutputCrontabString = $@"0/{seconds} 0 * 1/1 * ?";
+                model.OutputCrontabString = $@"0/{seconds} * * 1/1 * ?";
             }
         }
 
