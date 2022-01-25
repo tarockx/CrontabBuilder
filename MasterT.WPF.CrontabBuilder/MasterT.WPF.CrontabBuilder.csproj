@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <AssemblyVersion>1.2.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <!-- Nuget specs -->
@@ -22,7 +22,7 @@
     <Copyright>Copyright 2021</Copyright>
     <PackageTags>WPF Crontab</PackageTags>
     <PackageReleaseNotes>
-      Lowered .NET Framework min version to v461
+      Fixed "could not load assembly" error in some scenarios
     </PackageReleaseNotes>
   </PropertyGroup>
   
