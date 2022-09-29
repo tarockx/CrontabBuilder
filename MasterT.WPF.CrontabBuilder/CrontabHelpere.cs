@@ -94,6 +94,53 @@ namespace MasterT.WPF.CrontabBuilder
                     return model;
                 }
 
+                re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) \? \* (?<day>(?<mon>(MON|2)#[1-5])|(?<tue>(TUE|3)#[1-5])|(?<wed>(WED|4)#[1-5])|(?<thu>(THU|5)#[1-5])|(?<fri>(FRI|6)#[1-5])|(?<sat>(SAT|7)#[1-5])|(?<sun>(SUN|1)#[1-5]))");
+                if (re.IsMatch(crontab))
+                {
+                    model.NthDayOfWeekMode = true;
+
+                    Match match = re.Match(crontab);
+                    string minutes = FillTwoDigits(match.Groups[1].Value);
+                    string hours = FillTwoDigits(match.Groups[2].Value);
+                    model.WeeklyModeTime = $"{hours}:{minutes}";
+
+                    var dayGroupValue = match.Groups[re.GetGroupNames().ToList().IndexOf("day")].Value;
+
+                    model.NthDayOfWeekIndex = dayGroupValue.Substring(dayGroupValue.IndexOf('#')+1);
+                    var dayOfWeek = dayGroupValue.Substring(0, dayGroupValue.IndexOf('#'));
+
+                    switch (dayOfWeek)
+                    {
+                        case "1":
+                            dayOfWeek = "SUN";
+                            break;
+                        case "2":
+                            dayOfWeek = "MON";
+                            break;
+                        case "3":
+                            dayOfWeek = "TUE";
+                            break;
+                        case "4":
+                            dayOfWeek = "WED";
+                            break;
+                        case "5":
+                            dayOfWeek = "THU";
+                            break;
+                        case "6":
+                            dayOfWeek = "FRI";
+                            break;
+                        case "7":
+                            dayOfWeek = "SAT";
+                            break;
+                        default:
+                            break;
+                    }
+
+                    model.NthDayOfWeekWeekday = dayOfWeek;
+
+                    return model;
+                }
+
                 re = new Regex(@"0 ([0-9]|[0-5][0-9]) ([0-9]|[0-2][0-9]) \? \* (MON,?)?(TUE,?)?(WED,?)?(THU,?)?(FRI,?)?(SAT,?)?(SUN,?)?");
                 if (re.IsMatch(crontab))
                 {
@@ -206,6 +253,19 @@ namespace MasterT.WPF.CrontabBuilder
             }
             days = builder.ToString().Trim(',');
             if (string.IsNullOrWhiteSpace(days)) days = "*";
+            var minutes = int.Parse(model.WeeklyModeTime.Split(':')[1]);
+            var hours = int.Parse(model.WeeklyModeTime.Split(':')[0]);
+            model.OutputCrontabString = $"0 {minutes} {hours} ? * {days}";
+        }
+
+        private static void ComputeEveryNthDayOfWeekCrontab(CrontabExpressionModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.WeeklyModeTime)) model.WeeklyModeTime = "12:00";
+
+            if (!(model.NthDayOfWeekMode && checkIfIsValidTime(model.WeeklyModeTime))) return;
+
+            var days = $"{model.NthDayOfWeekWeekday}#{model.NthDayOfWeekIndex}";
+
             var minutes = int.Parse(model.WeeklyModeTime.Split(':')[1]);
             var hours = int.Parse(model.WeeklyModeTime.Split(':')[0]);
             model.OutputCrontabString = $"0 {minutes} {hours} ? * {days}";
@@ -348,6 +408,12 @@ namespace MasterT.WPF.CrontabBuilder
                 if (model.LastDayOfMonthMode)
                 {
                     ComputeLastMonthDay(model);
+                    return;
+                }
+
+                if (model.NthDayOfWeekMode)
+                {
+                    ComputeEveryNthDayOfWeekCrontab(model);
                     return;
                 }
 

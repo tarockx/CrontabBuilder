@@ -19,7 +19,7 @@
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical" x:Name="stackGroups">
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowSecondsMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioSeconds"
@@ -36,7 +36,8 @@
                         <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_Seconds_Text}"></TextBlock>
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Margin="3">
+
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowMinutesMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioMinutes"
@@ -54,7 +55,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowHoursMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioHourly" 
@@ -72,7 +73,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowDayMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioDaily" 
@@ -89,7 +90,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowWeekMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioWeekly" 
@@ -114,7 +115,43 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowNthDayOfWeekMode, Converter={StaticResource bool2vis}}">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioNthWeekDay" 
+			               GroupName="mainRadios" 
+			               IsChecked="{Binding NthDayOfWeekMode}"
+			               Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryNthDayOfWeek_Title}"/>
+                        </StackPanel>
+                    </GroupBox.Header>
+
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioNthWeekDay, Path=IsChecked}">
+                        <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEvery}"/>
+                        <ComboBox Margin="3 3 5 3" SelectedValue="{Binding NthDayOfWeekIndex}" Width="70" SelectedValuePath="Tag">
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_1st}" Tag="1"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_2nd}" Tag="2"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_3rd}" Tag="3"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_4th}" Tag="4"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_5th}" Tag="5"></ComboBoxItem>
+                        </ComboBox>
+
+                        <ComboBox Margin="3" SelectedValue="{Binding NthDayOfWeekWeekday}" Width="120" SelectedValuePath="Tag">
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Monday}" Tag="MON"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Tuesday}" Tag="TUE"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Wednesday}" Tag="WED"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Thursday}" Tag="THU"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Friday}" Tag="FRI"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Saturday}" Tag="SAT"></ComboBoxItem>
+                            <ComboBoxItem Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_Sunday}" Tag="SUN"></ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Margin="10 3 3 3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_OfTheWeekAt}"/>
+                        <TextBox Margin="3" Width="50" Text="{Binding WeeklyModeTime, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_StartingTimeInFormat_Text}" />
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowMonthMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioMonthly" GroupName="mainRadios" IsChecked="{Binding MonthlyMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryMonth_Text}"/>
@@ -136,7 +173,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowLastDayOfMonthMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioLastDayOfMonth" GroupName="mainRadios" IsChecked="{Binding LastDayOfMonthMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_OnTheLastDayOfTheMonth_Text}"/>
@@ -155,7 +192,7 @@
                     </StackPanel>
                 </GroupBox>
 
-                <GroupBox Margin="3">
+                <GroupBox Margin="3" Visibility="{Binding ElementName=uc1, Path=ShowCustomExpressionMode, Converter={StaticResource bool2vis}}">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioCustom" GroupName="mainRadios" IsChecked="{Binding CustomMode}" Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_CustomCronExpression_Text}"/>

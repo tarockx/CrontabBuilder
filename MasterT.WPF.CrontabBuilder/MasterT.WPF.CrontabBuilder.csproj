@@ -1,71 +1,77 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net461</TargetFrameworks>
-    <OutputType>Library</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWPF>true</UseWPF>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <AssemblyVersion>1.2.2.0</AssemblyVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net5.0-windows;netcoreapp3.1;net461</TargetFrameworks>
+		<OutputType>Library</OutputType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<UseWPF>true</UseWPF>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+		<AssemblyVersion>1.3.0.0</AssemblyVersion>
+	</PropertyGroup>
 
-  <!-- Nuget specs -->
-  <PropertyGroup>
-    <PackageVersion>$(AssemblyVersion)</PackageVersion>
-    <PackageId>MasterT.WPF.CrontabBuilder</PackageId>
-    <Title>Crontab Control for WPF</Title>
-    <Authors>Master_T</Authors>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/tarockx/CrontabBuilder</PackageProjectUrl>
-    <Description>A basic reusable WPF Control to generate a Crontab string</Description>
-    <releaseNotes></releaseNotes>
-    <Copyright>Copyright 2021</Copyright>
-    <PackageTags>WPF Crontab</PackageTags>
-    <PackageReleaseNotes>
-      Fixed "could not load assembly" error in some scenarios
-    </PackageReleaseNotes>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="CronExpressionDescriptor" Version="2.16.0" />
-  </ItemGroup>
+	<!-- Nuget specs -->
+	<PropertyGroup>
+		<PackageVersion>$(AssemblyVersion)</PackageVersion>
+		<PackageId>MasterT.WPF.CrontabBuilder</PackageId>
+		<Title>Crontab Control for WPF</Title>
+		<Authors>Master_T</Authors>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/tarockx/CrontabBuilder</PackageProjectUrl>
+		<Description>A basic reusable WPF Control to generate a Crontab string</Description>
+		<releaseNotes></releaseNotes>
+		<Copyright>Copyright 2022</Copyright>
+		<PackageTags>WPF Crontab</PackageTags>
+		<PackageReleaseNotes>
+			Added "Every X seconds" mode
+			Added "Every nth day of the week" mode
+			Added properties to selectively show or hide every mode
+		</PackageReleaseNotes>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="CronExpressionDescriptor" Version="2.17.2" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources\UserControl_CrontabEditorControl.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UserControl_CrontabEditorControl.en.resx</DependentUpon>
-      <DependentUpon>UserControl_CrontabEditorControl.da.resx</DependentUpon>
-      <DependentUpon>UserControl_CrontabEditorControl.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\UserControl_CrontabEditorControl.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>UserControl_CrontabEditorControl.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\UserControl_CrontabEditorControl.da.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\UserControl_CrontabEditorControl.en.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\UserControl_CrontabEditorControl.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <LastGenOutput>UserControl_CrontabEditorControl.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
 
 </Project>

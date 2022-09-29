@@ -54,6 +54,15 @@ The `CrontabEditorControl` exposes the following dependency properties that can 
 * `ShowCurrentCrontab` - shows or hides the bottom panel that shows the currently selected Crontab string
 * `ShowCurrentCrontabDescription` - shows or hides the bottom panel that shows a human-readable description the currently selected Crontab string
 * `ShowInfoOutsideMainScroller` - if set to `true`, this will move the description panels outside the main `ScrollViewer` that contains all the crontab editing controls. This means the description panel will always be visible even if the editing controls are partially hidden due to lack of vertical space.
+* `ShowSecondsMode` - shows or hides the "every X seconds" panel
+* `ShowMinutesMode` - shows or hides the "every X minutes" panel
+* `ShowHoursMode` - shows or hides the "every X hours" panel
+* `ShowDayMode` - shows or hides the "every day" panel
+* `ShowWeekMode` - shows or hides the "every week" panel
+* `ShowNthDayOfWeekMode` - shows or hides the "every nth week day" panel
+* `ShowMonthMode` - shows or hides the "every month" panel
+* `ShowLastDayOfMonthMode` - shows or hides the "last day of the month" panel
+* `ShowCustomExpressionMode` - shows or hides the "custom Cron expression" panel
 
 ## Building
 
@@ -65,3 +74,4 @@ NuGet package can be built by using the `dotnet` command line:
 This project uses [Cron Expression Descriptor](https://github.com/bradymholt/cron-expression-descriptor) by Brady Holt 
 
 Thanks to [Christoffer Pedersen](https://github.com/Tonur) for: localization support, danish translation
+Thanks to [joaquinsosamartin](https://github.com/joaquinsosamartin) for: implementation of "every X seconds" mode

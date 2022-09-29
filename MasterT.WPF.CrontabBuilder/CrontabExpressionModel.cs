@@ -10,6 +10,8 @@
         string dailyModeTime;
         string weeklyModeTime;
         string lastDayOfMonthModeTime;
+        string nthDayOfWeekIndex;
+        string nthDayOfWeekWeekday;
 
         bool isEverySecondMode;
         bool isEveryMinuteMode;
@@ -19,6 +21,7 @@
         bool isLastWeekDayOfMonthMode;
         bool isDayOfMonthMode;
         bool isWeekDayOfMonthMode;
+        bool isNthDayOfWeekMode;
         bool isDayOfWeekMode;
         bool isCustomMode;
 
@@ -94,6 +97,32 @@
             set
             {
                 SetField(ref lastDayOfMonthModeTime, value);
+            }
+        }
+
+        public string NthDayOfWeekIndex
+        {
+            get
+            {
+                return nthDayOfWeekIndex;
+            }
+
+            set
+            {
+                SetField(ref nthDayOfWeekIndex, value);
+            }
+        }
+
+        public string NthDayOfWeekWeekday
+        {
+            get
+            {
+                return nthDayOfWeekWeekday;
+            }
+
+            set
+            {
+                SetField(ref nthDayOfWeekWeekday, value);
             }
         }
 
@@ -232,6 +261,18 @@
             set
             {
                 SetField(ref isWeekDayOfMonthMode, value);
+            }
+        }
+
+        public bool NthDayOfWeekMode
+        {
+            get
+            {
+                return isNthDayOfWeekMode;
+            }
+            set
+            {
+                SetField(ref isNthDayOfWeekMode, value);
             }
         }
 
