@@ -70,8 +70,8 @@ namespace MasterT.WPF.CrontabBuilder
         {
             var ce = (d as CrontabEditorControl);
             var item = ce.gbDescriptions;
-            
-            if((bool)e.NewValue)
+
+            if ((bool)e.NewValue)
             {
                 ce.stackGroups.Children.Remove(item);
                 item.SetValue(Grid.RowProperty, 2);
@@ -124,18 +124,18 @@ namespace MasterT.WPF.CrontabBuilder
             CrontabEditorControl owner = d as CrontabEditorControl;
             if (!owner.pauseCrontabStringMonitoring)
             {
-                owner.UpdateExpression(e.NewValue as string, owner.CrontabExpression?.CustomMode ?? false);            
+                owner.UpdateExpression(e.NewValue as string, owner.CrontabExpression?.CustomMode ?? false);
 
             }
         }
 
         private void UpdateExpression(string crontab, bool customMode)
-        {            
-            if(CrontabExpression != null)
+        {
+            if (CrontabExpression != null)
             {
                 CrontabExpression.PropertyChanged -= CrontabExpression_PropertyChanged;
             }
-            CrontabExpression = crontab == null ? new CrontabExpressionModel() { CustomMode = customMode} : CrontabHelper.Parse(crontab, customMode);
+            CrontabExpression = crontab == null ? new CrontabExpressionModel() { CustomMode = customMode } : CrontabHelper.Parse(crontab, customMode);
             CrontabExpression.PropertyChanged += CrontabExpression_PropertyChanged;
             ComputeDescription();
         }

@@ -4,12 +4,14 @@
     {
         string monthlyModeTime;
         string monthlyModeDay;
+        string secondModeSeconds;
         string minuteModeMinutes;
         string hourlyModeHours;
         string dailyModeTime;
         string weeklyModeTime;
         string lastDayOfMonthModeTime;
 
+        bool isEverySecondMode;
         bool isEveryMinuteMode;
         bool isEveryHourMode;
         bool isEveryDayMode;
@@ -95,6 +97,19 @@
             }
         }
 
+        public string SecondModeSeconds
+        {
+            get
+            {
+                return secondModeSeconds;
+            }
+
+            set
+            {
+                SetField(ref secondModeSeconds, value);
+            }
+        }
+
         public string MinuteModeMinutes
         {
             get
@@ -124,6 +139,18 @@
         /// <summary>
         /// Mode
         /// </summary>
+        public bool SecondMode
+        {
+            get
+            {
+                return isEverySecondMode;
+            }
+            set
+            {
+                SetField(ref isEverySecondMode, value);
+            }
+        }
+
         public bool MinuteMode
         {
             get
@@ -352,8 +379,5 @@
                 }
             }
         }
-
-
-
     }
 }

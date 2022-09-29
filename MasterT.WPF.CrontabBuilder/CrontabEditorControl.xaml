@@ -22,6 +22,23 @@
                 <GroupBox Margin="3">
                     <GroupBox.Header>
                         <StackPanel Orientation="Horizontal" Margin="3">
+                            <RadioButton x:Name="radioSeconds"
+                                         GroupName="mainRadios" 
+                                         IsChecked="{Binding SecondMode}"
+                                         Content="{x:Static resources:UserControl_CrontabEditorControl.XAML_EveryXSeconds_Title}"/>
+                        </StackPanel>
+                    </GroupBox.Header>
+
+                    <StackPanel Orientation="Horizontal" Margin="3" IsEnabled="{Binding ElementName=radioSeconds, Path=IsChecked}">
+                        <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_RunEvery_Text}"/>
+                        <TextBox Margin="3" Width="50" Text="{Binding SecondModeSeconds, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBlock Margin="3" Text=" "></TextBlock>
+                        <TextBlock Margin="3" Text="{x:Static resources:UserControl_CrontabEditorControl.XAML_Seconds_Text}"></TextBlock>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Margin="3">
+                    <GroupBox.Header>
+                        <StackPanel Orientation="Horizontal" Margin="3">
                             <RadioButton x:Name="radioMinutes"
 			               GroupName="mainRadios" 
 			               IsChecked="{Binding MinuteMode}"

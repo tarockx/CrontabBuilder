@@ -31,7 +31,15 @@ namespace MasterT.WPF.CrontabBuilder
             {
                 model.OutputCrontabString = crontab;
 
-                var re = new Regex(@"0 0/([0-9]|[0-5][0-9]) \* 1/1 \* \?");
+                var re = new Regex(@"0(/([0-9]|[0-5][0-9]))* 0(/([0-9]|[0-5][0-9]))* \* 1\/1 \* \?");
+                if (re.IsMatch(crontab))
+                {
+                    model.SecondMode = true;
+                    model.SecondModeSeconds = re.Match(crontab).Groups[1].Value;
+                    return model;
+                }
+
+                re = new Regex(@"0 0/([0-9]|[0-5][0-9]) \* 1/1 \* \?");
                 if (re.IsMatch(crontab))
                 {
                     model.MinuteMode = true;
@@ -117,10 +125,20 @@ namespace MasterT.WPF.CrontabBuilder
             return input.Length == 1 ? $"0{input}" : input;
         }
 
+        private static void ComputeEverySecondCrontab(CrontabExpressionModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.SecondModeSeconds)) model.SecondModeSeconds = "1";
+            if (model.SecondMode && CheckIfIsValidMinuteOrSeconds(model.SecondModeSeconds))
+            {
+                var seconds = int.Parse(model.SecondModeSeconds);
+                model.OutputCrontabString = $@"0/{seconds} * * 1/1 * ?";
+            }
+        }
+
         private static void ComputeEveryMinuteCrontab(CrontabExpressionModel model)
         {
             if (string.IsNullOrWhiteSpace(model.MinuteModeMinutes)) model.MinuteModeMinutes = "1";
-            if (model.MinuteMode && checkIfIsValidMinute(model.MinuteModeMinutes))
+            if (model.MinuteMode && CheckIfIsValidMinuteOrSeconds(model.MinuteModeMinutes))
             {
                 var minutes = int.Parse(model.MinuteModeMinutes);
                 model.OutputCrontabString = $@"0 0/{minutes} * 1/1 * ?";
@@ -252,15 +270,15 @@ namespace MasterT.WPF.CrontabBuilder
         }
 
         /// <summary>
-        /// Check if the value is a valid minute number
+        /// Check if the value is a valid minute or second number
         /// </summary>
-        /// <param name="minute"></param>
+        /// <param name="value"></param>
         /// <returns></returns>
-        private static bool checkIfIsValidMinute(string minute)
+        private static bool CheckIfIsValidMinuteOrSeconds(string value)
         {
-            if (string.IsNullOrWhiteSpace(minute)) return false;
+            if (string.IsNullOrWhiteSpace(value)) return false;
             var md = 0;
-            if (!int.TryParse(minute, out md)) return false;
+            if (!int.TryParse(value, out md)) return false;
             if (md > 59 || md < 1) return false;
             return true;
 
@@ -294,6 +312,12 @@ namespace MasterT.WPF.CrontabBuilder
             {
                 if (model.CustomMode)
                 {
+                    return;
+                }
+
+                if (model.SecondMode)
+                {
+                    ComputeEverySecondCrontab(model);
                     return;
                 }
 
