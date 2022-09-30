@@ -2,6 +2,15 @@
 
 CrontabBuilder is a (very) simple WPF control that allows users to create or edit a CRONTAB string (must be in the Qaurtz format) in a visual way.
 
+## Changelog
+### v1.3.0
+* Added "Every X seconds" mode
+* Added "Every nth day of the week" mode
+* Added properties to selectively show or hide every mode
+
+### Older changes
+See the [full changelog](./CHANGELOG.txt)
+
 ## Installation
 
 The package is available on NuGet:
@@ -73,5 +82,5 @@ NuGet package can be built by using the `dotnet` command line:
 
 This project uses [Cron Expression Descriptor](https://github.com/bradymholt/cron-expression-descriptor) by Brady Holt 
 
-Thanks to [Christoffer Pedersen](https://github.com/Tonur) for: localization support, danish translation
+Thanks to [Christoffer Pedersen](https://github.com/Tonur) for: localization support, danish translation  
 Thanks to [joaquinsosamartin](https://github.com/joaquinsosamartin) for: implementation of "every X seconds" mode
