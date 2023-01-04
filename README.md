@@ -3,10 +3,8 @@
 CrontabBuilder is a (very) simple WPF control that allows users to create or edit a CRONTAB string (must be in the Qaurtz format) in a visual way.
 
 ## Changelog
-### v1.3.0
-* Added "Every X seconds" mode
-* Added "Every nth day of the week" mode
-* Added properties to selectively show or hide every mode
+### v1.3.1
+* Fixed a bug in the regular expression that failed to recognize some "every X seconds" crontab strings
 
 ### Older changes
 See the [full changelog](./CHANGELOG.txt)
