@@ -1,6 +1,8 @@
 # CrontabBuilder
 
-CrontabBuilder is a (very) simple WPF control that allows users to create or edit a CRONTAB string (must be in the Qaurtz format) in a visual way.
+CrontabBuilder is a simple WPF control that allows users to visually edit a CRONTAB string in the Qaurtz format.
+
+![preview of the control](./builder_demo.png)
 
 ## Changelog
 ### v1.3.1
