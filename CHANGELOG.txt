@@ -1,3 +1,6 @@
+1.3.1
+	Fixed a bug in the regular expression that failed to recognize some "every X seconds" crontab strings
+
 1.3.0
 	Added "Every X seconds" mode
 	Added "Every nth day of the week" mode

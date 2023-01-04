@@ -31,7 +31,7 @@ namespace MasterT.WPF.CrontabBuilder
             {
                 model.OutputCrontabString = crontab;
 
-                var re = new Regex(@"0(/([0-9]|[0-5][0-9]))* 0(/([0-9]|[0-5][0-9]))* \* 1\/1 \* \?");
+                var re = new Regex(@"0/([0-9]|[0-5][0-9]) \* \* 1\/1 \* \?");
                 if (re.IsMatch(crontab))
                 {
                     model.SecondMode = true;
