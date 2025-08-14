@@ -21,7 +21,7 @@ namespace MasterT.WPF.CrontabBuilderDemo
         public MainWindow()
         {
             InitializeComponent();
-            CrontabString = "0 0 9 ? * THU#4 *";
+            CrontabString = "0 30 0 ? * * *";
 
         }
     }
