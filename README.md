@@ -4,6 +4,10 @@ CrontabBuilder is a simple WPF control that allows users to visually edit a CRON
 
 ![preview of the control](./builder_demo.png)
 
+## Web component
+
+If you're developing an Angular wep app, a port of this control targeting Angular is available at [ngx-crontab-builder](https://github.com/tarockx/ngx-crontab-builder)
+
 ## Changelog
 ### v1.3.1
 * Fixed a bug in the regular expression that failed to recognize some "every X seconds" crontab strings
